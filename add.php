@@ -16,5 +16,6 @@ $consulta->execute();
 
 ?>
 <h2>Seu cadastro foi registrado!</h2>
+<meta charset="utf-8">
 <a href="form.html">Cadastro</a>
 <a href="dados.php">Ver dados</a>

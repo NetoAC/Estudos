@@ -26,7 +26,7 @@ if ($consulta->rowCount()>=1) {
 ?>
 <a href="form.html">Cadastro</a>
 <style>
-table {
+table{
 	border-collapse: collapse;
 	width: 50%;
 }
