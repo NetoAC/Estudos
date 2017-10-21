@@ -1,33 +1,25 @@
-<?php 
+<?php  
 include 'config.php';
-$result=$pdo->query("SELECT * FROM usuarios");
+//SQL
+$consulta=$pdo->prepare("SELECT * FROM usuarios");
+$consulta->execute();
+
+if ($consulta->rowCount()>=1) {
+	while ($dados=$consulta->fetch()) {
+	echo "<table border=1>
+			<tr>
+				<td align=center>".$dados['id']."</td>
+				<td>".$dados['nome']."</td>
+				<td>".$dados['username']."</td>
+				<td>".$dados['email']."</td>
+			</tr>
+		</table>";
+	}
+}
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<title></title>
-</head>
-<body>
-	<a href="form.php">Novo Cadastro</a>
-	<table border="1">
-		<tr>
-			<td>Nome</td>
-			<td>Username</td>
-			<td>Email</td>
-			<td>Senha</td>
-			<td>Ações</td>
-		</tr>
-		<?php 
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo "<tr>";
-			echo "<td>".$row['nome']."</td>";
-			echo "<td>".$row['username']."</td>";
-			echo "<td>".$row['email']."</td>";
-			echo "<td>".$row['senha']."</td>";
-			echo "<td><a href=\"edit.php?id=$row[id]\">Edit</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
-		}
-		?>
-	</table>
-</body>
-</html>
+<a href="form.html">Novo cadastro</a>
+<style>
+	td{
+		column-span: 23px;
+	}
+</style>
