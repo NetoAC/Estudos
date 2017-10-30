@@ -1,25 +1,21 @@
-<?php  
+<?php 
 include 'config.php';
-//SQL
 $consulta=$pdo->prepare("SELECT * FROM usuarios");
 $consulta->execute();
-
-if ($consulta->rowCount()>=1) {
+if ($consulta->rowCount() >= 1) {
 	while ($dados=$consulta->fetch()) {
-	echo "<table border=1>
-			<tr>
-				<td align=center>".$dados['id']."</td>
-				<td>".$dados['nome']."</td>
-				<td>".$dados['username']."</td>
-				<td>".$dados['email']."</td>
-			</tr>
-		</table>";
+		echo "
+		<table border=1px cellpading=5px cellspacing=0px>
+		<th>
+		<tr><td>"."Nome: ".$dados['nome']."</td></tr>
+		<tr><td>"."Username: ".$dados['username']."</td></tr>
+		<tr><td>"."Email: ".$dados['email']."</td></tr>
+		<tr><td>"."Senha: ".$dados['senha']."</td></tr>
+		</th>
+		</table>
+		";
 	}
 }
 ?>
-<a href="form.html">Novo cadastro</a>
-<style>
-	td{
-		column-span: 23px;
-	}
-</style>
+<a href="form.html">Novo Cadastro</a>
+<a href="">Login</a>

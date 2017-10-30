@@ -1,5 +1,5 @@
-create database new;
-use new;
+create database less;
+use less;
 create table usuarios(
 	id int auto_increment,
 	nome varchar(45) not null,
